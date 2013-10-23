@@ -17,7 +17,8 @@ module Pacfilter
       list = @tagger.tokenize(sentence)
       list.extend JavaIterator
       list.each do |x|
-        word = x.surface_form
+        #word = x.surface_form
+        word = x.base_form
         features = x.all_features.split(',')
         pos = features[0] # 一番目の助詞をメインとして扱う
         if !is_uncheck_pos(pos) && !is_exception_word(word)
@@ -38,6 +39,8 @@ module Pacfilter
     # チェックから外すワード
     def is_exception_word word
       if word =~ /[0-9]+/
+        return true
+      elsif word =~ /[。、 　:;\^\(\)\\\/$%@#-+％＄＃＠]/
         return true
       end
       return false

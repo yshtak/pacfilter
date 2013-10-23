@@ -1,0 +1,11 @@
+:mysql:
+ :host: localhost
+ :port:
+ :password: 
+ :user: 
+:mongo:
+ :host: localhost
+ :port: 27017
+ :dbname: pacfilter_db
+ :password: 
+ :user: 
